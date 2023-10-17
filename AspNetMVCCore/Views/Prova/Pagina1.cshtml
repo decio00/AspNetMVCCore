@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Pagina1";
+}
+<h1>Ciao</h1>
+
+<a href="/Home/Index">Vai alla Home</a>
+<br />
+<a asp-controller="Home" asp-action="Index">Vai a casa</a>
+
+<ul>
+@for(int i = 0; i < 20; i++)
+{
+    <li>@(i + 1)</li>
+}
+</ul>

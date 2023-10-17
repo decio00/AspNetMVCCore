@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Calcolatrice";
+
+    double n1 = 0;
+    double n2 = 0;
+    double risultato = 0;
+
+    double.TryParse(Context.Request.Query["txt4"], out n1);
+    double.TryParse(Context.Request.Query["txt5"].ToString(), out n2);
+    risultato = n1 + n2;
+}
+
+@section Scripts
+    {
+    <script>
+        //segnaposto per gli script javascript
+        function calcolajs() {
+            let n1 = document.getElementById("txt1").value;
+            let n2 = document.getElementById("txt2").value;
+
+            document.getElementById("txt3").value = eval(n1) + eval(n2);
+        }
+    </script>
+}
+
+<h1>Tre Calcolatrici</h1>
+
+<hr />
+<h2>Calcolatrice Javascript</h2>
+<input type="text" id="txt1" />
+<br>
+<input type="text" id="txt2" />
+<br>
+<input class="btn btn-primary" type="button" value="Calcola JS" onclick="calcolajs()" />
+<br />
+<input type="text" id="txt3" />
+<br>
+<hr />
+
+
+<h2>Calcolatrice Razor</h2>
+
+<form method="get">
+    <input type="text" name="txt4" value="@(n1 == 0 ? "" : @n1)" />
+    <br>
+    <input type="text" name="txt5" value="@(n2== 0 ? "" : @n2)" />
+    <br>
+    <input class="btn btn-primary" type="submit" value="Calcola Razor" />
+    <br />
+    <input type="text" name="txt6" value="@(risultato == 0 ? "" : @risultato)" />
+    <br>
+</form>
+
+<hr />
+
+
+<h2>Calcolatrice C#</h2>
+
+<form method="post">
+    <input type="text" name="txt7" value="@ViewData["Num1"]" />
+    <br>
+    <input type="text" name="txt8" value="@ViewBag.Num2"  />
+    <br>
+    <input class="btn btn-primary" type="submit" value="Calcola C#" />
+    <br />
+    <input type="text" name="txt9" value="@ViewBag.Risultato" />
+    <br>
+</form>
