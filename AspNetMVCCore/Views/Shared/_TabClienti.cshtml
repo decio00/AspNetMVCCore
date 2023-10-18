@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Customer>;
+@if(Model is not null && Model.Count() != 0)
+{
+<table class="table table-bordered">
+    <tr>
+        <th>Customer Id</th>
+        <th>Company Name</th>
+        <th>City</th>
+        <th>Country</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.CustomerId</td>
+            <td>@i.CompanyName</td>
+            <td>@i.City</td>
+            <td>@i.Country</td>
+        </tr>
+    }
+</table>
+}

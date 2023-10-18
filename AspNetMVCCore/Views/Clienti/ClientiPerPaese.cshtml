@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Clienti Per Paese";
+}
+
+<h1>Clienti Per Paese</h1>
+
+<form method="post">
+    <p>Scrivi il paese</p>
+    <input type="text" name="paese" class="bg-info" value="@ViewBag.Paese" />
+    <input type="submit" value="Cerca" />
+</form>
+
+<hr />
+
+<partial name="_TabClienti" />
