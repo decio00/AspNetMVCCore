@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ClientiOrdini>;
+@{
+    ViewData["Title"] = "Clienti Ordini";
+}
+
+<h1>Clienti Ordini</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>OrderId</th>
+        <th>OrderDate</th>
+        <th>CompanyName</th>
+        <th>City</th>
+        <th>Country</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.OrderId</td>
+            <td>@i.OrderDate</td>
+            <td>@i.CompanyName</td>
+            <td>@i.City</td>
+            <td>@i.Country</td>
+        </tr>
+    }
+</table>

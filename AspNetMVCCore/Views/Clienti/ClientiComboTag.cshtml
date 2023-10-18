@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "ClientiComboTag";
+}
+
+<h1>ClientiComboTag</h1>
+
+<form>
+    <div class="row">
+        <div class="col-4">
+            <select name="paese" autofocus asp-items="ViewBag.Combo" onchange="this.form.submit()">
+            </select>
+        </div>
+        <div class="col-8">
+
+            <partial name="_TabClienti" />
+        </div>
+    </div>
+</form>
