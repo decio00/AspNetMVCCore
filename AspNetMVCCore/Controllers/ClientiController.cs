@@ -34,5 +34,14 @@ namespace AspNetMVCCore.Controllers
 
             return View(query);
         }
+
+        public IActionResult ClientiCombo(string paese)
+        {
+            var query = _northwindContext.Customers.GroupBy(c => c.Country).Select(k => k.Key).ToList();
+            ViewBag.Combo = query;
+
+            var query1 = _northwindContext.Customers.Where(c => c.Country == paese).ToList();
+            return View(query1);
+        }
     }
 }

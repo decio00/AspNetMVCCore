@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Clienti Combo";
+}
+
+<h1>Clienti Combo</h1>
+
+<form>
+    <div class="row">
+        <div class="col-4">
+            <select name="paese" onchange="this.form.submit()">
+                @foreach (var item in ViewBag.Combo)
+                {
+                    if (Context.Request.Query["paese"].ToString() == item)
+                    {
+                        <option selected>@item</option>
+                    }
+                    else
+                    {
+                        <option>@item</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-8">
+            <partial name="_TabClienti" />
+        </div>
+    </div>
+</form>
